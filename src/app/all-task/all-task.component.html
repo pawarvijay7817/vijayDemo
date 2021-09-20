@@ -1,0 +1,47 @@
+
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <div class="card">
+     <div class="card-header">
+        <div class="row">
+          <div class="col-md-8">
+            Task List
+          </div>
+          <div class="col-md-4">
+            <a routerLink="/add_task" class="btn btn-primary">Add</a>
+          </div>
+        </div>
+     </div>
+     <div class="card-body">
+      <div class="row">
+        <div class="col-md-12 ">
+          <table class="table table-stripped table-bordered">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Date</th>
+              <th>Task Name</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let task of taskList; let i=index;">
+                <td>{{i+1}}</td>
+                <td>{{task.date}}</td>
+                <td>{{task.name}}</td>
+                <td>{{task.status}}</td>
+                <td>
+                    <button class="btn btn-primary btn-sm" routerLink="/edit_task/{{i}}">Edit</button>
+                    <button (click)="delete_task(i);" class="btn btn-warning btn-sm">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+     </div>
+    </div>
+  </div>
+</div>
